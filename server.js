@@ -2,6 +2,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 
+//HEROKU
+//Creating app... done, aqueous-chamber-37940
+//https://aqueous-chamber-37940.herokuapp.com/ | https://git.heroku.com/aqueous-chamber-37940.git
+
 // Sets up the Express App
 // =============================================================
 var app = express();
