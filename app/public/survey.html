@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <title>Survey</title>
+</head>
+<body>
+    Name:    <input type="text" id="name" class="required" />  <br />
+    Photo: <input type="text" id="photo" class="required" />  <br />
+    Q1: <select class="question" id="q1">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q2: <select class="question" id="q2">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q3: <select class="question" id="q3">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q4: <select class="question" id="q4">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q5: <select class="question" id="q5">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q6: <select class="question" id="q6">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q7: <select class="question" id="q7">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q8: <select class="question" id="q8">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q9: <select class="question" id="q9">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q10: <select class="question" id="q10">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select> <br />
+    <input type="submit" id="submit" value="Submit" />
+
+<script type="text/javascript">
+    // Capture the form inputs
+    $("#submit").on("click", function(event) {
+        event.preventDefault();
+
+        // Form validation
+        function validateForm() {
+            var isValid = true;
+            $(".required").each(function() {
+                if ($(this).val() === "") {
+                isValid = false;
+                }
+            });
+
+            $("select.question").each(function() {
+                if ($(this).val() === "")
+                    isValid = false;
+            });
+            return isValid;
+        }
+
+        // If all required fields are filled
+        if (validateForm()) {
+            // Create an object for the user"s data
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+                ]
+            };
+
+            // AJAX post the data to the friends API.
+            $.post("/api/friends", userData, function(data) {
+                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $("#match-name").text(data.name);
+                $("#match-img").attr("src", data.photo);
+
+                // Show the modal with the best match
+                $("#results-modal").modal("toggle");
+
+            });
+        } else {
+            alert("Please fill out all fields before submitting!");
+        }
+    });
+    </script>
+</body>
+</html>
