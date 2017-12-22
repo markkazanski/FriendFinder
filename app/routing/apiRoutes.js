@@ -12,18 +12,29 @@ module.exports = function(app){
         //This route will also be used to handle the compatibility logic. 
         console.log(newFriend);
         newFriend.totalScore =0;
-        for(var i=0; i<newFriend['scores[]'].length;i++){
-            newFriend.totalScore += parseInt( newFriend['scores[]'][i] );
+        for(var i=0; i<newFriend['scores'].length;i++){ //calculate new score
+            newFriend.totalScore += parseInt( newFriend['scores'][i] );
         }
         console.log(`New Friend Total Score: ${newFriend.totalScore}`);
 
-        for(var key in friendsArray){
+        var closestMatch = { index:null, difference:null  };
+
+        for(var key in friendsArray){ //calculate score for all friends
             console.log(friendsArray[key]);
             friendsArray[key].totalScore = 0;
             for(var j=0; j<friendsArray[key].scores.length; j++){
                 friendsArray[key].totalScore += parseInt( friendsArray[key].scores[j] );
             }
             console.log( `${friendsArray[key].name} total score: ${friendsArray[key].totalScore} `);
+            
+            var difference = Math.abs(friendsArray[key].totalScore - newFriend.totalScore);
+
+            if( difference < closestMatch.difference ){ //make the lowest difference friend the match
+                closestMatch.difference = difference;
+                closestMatch.id = key;
+            }
         }
+
+        console.log(`Your closest match: ${closestMatch}`);
     });
 };
