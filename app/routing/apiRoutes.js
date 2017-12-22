@@ -17,8 +17,6 @@ module.exports = function(app){
         }
         console.log(`New Friend Total Score: ${newFriend.totalScore}`);
 
-        friendsArray.push(newFriend);
-
         var closestMatch = { index:null, difference:50  };
 
         for(var key in friendsArray){ //calculate score for all friends
@@ -38,6 +36,8 @@ module.exports = function(app){
         }
 
         console.log(`Your closest match: ${closestMatch.index}`);
+
+        friendsArray.push(newFriend);
 
         res.json( friendsArray[ closestMatch.index ]);
     });

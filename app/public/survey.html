@@ -124,6 +124,9 @@
                     // Show the modal with the best match
                     $("#results-modal").modal("toggle");
 
+                    $("#name").val(""); //clear to prevent duplicates
+                    $("#photo").val("");
+
                 });
             } else {
                 alert("Please fill out all fields before submitting!");
