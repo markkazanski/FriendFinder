@@ -12,78 +12,143 @@
     <title>Survey</title>
 </head>
 <body>
-    Name:    <input type="text" id="name" class="required" />  <br />
-    Photo: <input type="text" id="photo" class="required" />  <br />
-    Q1: <select class="question" id="q1">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q2: <select class="question" id="q2">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q3: <select class="question" id="q3">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q4: <select class="question" id="q4">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q5: <select class="question" id="q5">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q6: <select class="question" id="q6">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q7: <select class="question" id="q7">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q8: <select class="question" id="q8">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q9: <select class="question" id="q9">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q10: <select class="question" id="q10">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select> <br />
-    <input type="submit" id="submit" value="Submit" />
+<div class="jumbotron text-center">
+                <h2>Survey</h2>
+                <h4>Answer the questions to find your match.</h4>
+</div>
 
-<script type="text/javascript">
-    // Capture the form inputs
-    $("#submit").on("click", function(event) {
-        event.preventDefault();
+<div class="container-fluid">
+    <div class="container">
+        <div class="well row">
+            <div class="col-sm-6">
+                <h4>Name:</h4>
+                <input type="text" id="name" class="form-control input-lg required" />
+            </div>
+            <div class="col-sm-6">
+                <h4>Photo: </h4>
+                <input type="text" id="photo" class="form-control input-lg required" />
+            </div>
+        </div>
 
-        // Form validation
-        function validateForm() {
-            var isValid = true;
-            $(".required").each(function() {
-                if ($(this).val() === "") {
-                isValid = false;
-                }
-            });
+        <div class="row">
+            <div class="col-sm-6">
+            <div class="well">
+            <h4>Q1: I like stuff</h4>
+            <select class="question form-control" id="q1">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q2: Monkeys are funny</h4>
+            <select class="question form-control" id="q2">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q3: The economic value of a good or service is determined by the total amount of socially necessary labor required to produce it</h4>
+            <select class="question form-control" id="q3">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q4: Pie is better than cake</h4>
+            <select class="question form-control" id="q4">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q5: I am the very model of a modern major-general</h4>
+            <select class="question form-control" id="q5">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            </div></div>
+            <div class="col-sm-6"><div class="well">
+            <h4>Q6: I've infomration vegetable, animal and mineral</h4>
+            <select class="question form-control" id="q6">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q7: John Lennon is the best Beatle</h4>
+            <select class="question form-control" id="q7">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q8: Winter is better than Summer</h4>
+            <select class="question form-control" id="q8">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q9: Coffee is better than tea</h4>
+            <select class="question form-control" id="q9">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select>  <br />
+            <h4>Q10: Workers have nothing to lose but their chains</h4>
+            <select class="question form-control" id="q10">  <option></option> <option value="1">1 Disagree</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5 Agree</option> </select> <br />
+            </div></div>
 
-            $("select.question").each(function() {
-                if ($(this).val() === "")
+            <div class="row">
+                <div class="col-sm-12">
+                        <input type="submit" class="form-control btn-primary" id="submit" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p><a href="/api/friends">API Friends</a> | <a href="https://github.com/markkazanski/FriendFinder" target="_blank">GitHub Repo</a></p>
+</footer>
+    <script type="text/javascript">
+        // Capture the form inputs
+        $("#submit").on("click", function(event) {
+            event.preventDefault();
+
+            // Form validation
+            function validateForm() {
+                var isValid = true;
+                $(".required").each(function() {
+                    if ($(this).val() === "") {
                     isValid = false;
-            });
-            return isValid;
-        }
+                    }
+                });
 
-        // If all required fields are filled
-        if (validateForm()) {
-            // Create an object for the user"s data
-            var scoresArray = [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-                ];
+                $("select.question").each(function() {
+                    if ($(this).val() === "")
+                        isValid = false;
+                });
+                return isValid;
+            }
 
-            var userData = {
-                "name": $("#name").val(),
-                "photo": $("#photo").val(),
-                "scores": scoresArray
-            };
-            console.log(userData);
+            // If all required fields are filled
+            if (validateForm()) {
+                // Create an object for the user"s data
+                var scoresArray = [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                    ];
 
-            // AJAX post the data to the friends API.
-            $.post("/api/friends", userData, function(data) {
-                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                $("#match-name").text(data.name);
-                $("#match-img").attr("src", data.photo);
+                var userData = {
+                    "name": $("#name").val(),
+                    "photo": $("#photo").val(),
+                    "scores": scoresArray
+                };
+                console.log(userData);
 
-                // Show the modal with the best match
-                $("#results-modal").modal("toggle");
+                // AJAX post the data to the friends API.
+                $.post("/api/friends", userData, function(data) {
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
 
-            });
-        } else {
-            alert("Please fill out all fields before submitting!");
-        }
-    });
-    </script>
+                    // Show the modal with the best match
+                    $("#results-modal").modal("toggle");
+
+                });
+            } else {
+                alert("Please fill out all fields before submitting!");
+            }
+        });
+        </script>
+
+<!-- Modal -->
+<div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Closest Match</h2>
+            </div>
+            <div class="modal-body">
+                <h3 id="match-name">No One?</h3>
+                <p style="text-align:center;">
+                    <img id="match-img" class="img-responsive" src="https://placeimg.com/640/480/nature" alt="Your Match" />
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
