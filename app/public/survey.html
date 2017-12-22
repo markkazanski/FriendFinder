@@ -14,16 +14,16 @@
 <body>
     Name:    <input type="text" id="name" class="required" />  <br />
     Photo: <input type="text" id="photo" class="required" />  <br />
-    Q1: <select class="question" id="q1">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q2: <select class="question" id="q2">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q3: <select class="question" id="q3">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q4: <select class="question" id="q4">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q5: <select class="question" id="q5">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q6: <select class="question" id="q6">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q7: <select class="question" id="q7">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q8: <select class="question" id="q8">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q9: <select class="question" id="q9">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
-    Q10: <select class="question" id="q10">  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select> <br />
+    Q1: <select class="question" id="q1">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q2: <select class="question" id="q2">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q3: <select class="question" id="q3">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q4: <select class="question" id="q4">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q5: <select class="question" id="q5">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q6: <select class="question" id="q6">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q7: <select class="question" id="q7">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q8: <select class="question" id="q8">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q9: <select class="question" id="q9">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select>  <br />
+    Q10: <select class="question" id="q10">  <option></option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> </select> <br />
     <input type="submit" id="submit" value="Submit" />
 
 <script type="text/javascript">
@@ -50,10 +50,7 @@
         // If all required fields are filled
         if (validateForm()) {
             // Create an object for the user"s data
-            var userData = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
-                scores: [
+            var scoresArray = [
                 $("#q1").val(),
                 $("#q2").val(),
                 $("#q3").val(),
@@ -64,8 +61,14 @@
                 $("#q8").val(),
                 $("#q9").val(),
                 $("#q10").val()
-                ]
+                ];
+
+            var userData = {
+                "name": $("#name").val(),
+                "photo": $("#photo").val(),
+                "scores": scoresArray
             };
+            console.log(userData);
 
             // AJAX post the data to the friends API.
             $.post("/api/friends", userData, function(data) {

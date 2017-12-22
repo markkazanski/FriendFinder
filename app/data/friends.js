@@ -1,4 +1,4 @@
-[
+var friendsArray = [
 {
   "name":"Ahmed",
   "photo":"https://placeimg.com/640/480/animals",
@@ -30,6 +30,24 @@
       2,
       3
     ]
+},
+{
+  "name":"Frank",
+  "photo":"https://placeimg.com/640/480/nature",
+  "scores":[
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ]
 }
 
 ]
+
+module.exports = friendsArray;
